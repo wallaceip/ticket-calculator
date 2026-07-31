@@ -28,12 +28,10 @@ const quantityInput = document.getElementById("quantity");
 const calcBtn = document.getElementById("calculate-button");
 const resultDiv = document.getElementById("result");
 
-
 /* ---------- Pricing rules (provided for you) ---------- */
-const GROUP_SIZE     = 10;    // 10+ tickets qualifies for the group discount
-const GROUP_DISCOUNT = 0.10;  // 10% off the subtotal
-const BOOKING_FEE    = 2.50;  // flat fee, once per order
-
+const GROUP_SIZE = 10; // 10+ tickets qualifies for the group discount
+const GROUP_DISCOUNT = 0.1; // 10% off the subtotal
+const BOOKING_FEE = 2.5; // flat fee, once per order
 
 /* ---------- 2. Write the calculation function ----------
    TODO: Create a function called calculateTotal() that:
@@ -53,35 +51,35 @@ const BOOKING_FEE    = 2.50;  // flat fee, once per order
 
 // INSERT YOUR CODE HERE
 const calculateTotal = () => {
-   const price = Number(ticketSelect.value);
-   const quantity = parseInt(quantityInput.value);
-   
-   // Validation
-   if (isNaN(quantity) || quantity < 1){
-      showError("Please enter a valid quantity amount (≥ 1)");
-      return;
-   }
+  const price = Number(ticketSelect.value);
+  const quantity = parseInt(quantityInput.value);
 
-   // Calculations
-   const subtotal = price * quantity;
-   const discount = quantity >= 10 ? subtotal * GROUP_DISCOUNT : 0;
-   const total = subtotal - discount + BOOKING_FEE
-    
-   // Display result
-   resultDiv.className = "";
-   resultDiv.style.display = "block";
-   resultDiv.innerHTML = `
+  // Validation
+  if (isNaN(quantity) || quantity < 1) {
+    showError("Please enter a valid quantity amount (≥ 1)");
+    return;
+  }
+
+  // Calculations
+  const subtotal = price * quantity;
+  const discount = quantity >= GROUP_SIZE ? subtotal * GROUP_DISCOUNT : 0;
+  const total = subtotal - discount + BOOKING_FEE;
+
+  // Display result
+  resultDiv.className = "";
+  resultDiv.style.display = "block";
+  resultDiv.innerHTML = `
    <div class='result-row'>
     <span>Subtotal</span>
     <span>$${subtotal.toFixed(2)}</span>
    </div>
    ${
-   discount > 0?
-   `<div class='result-row'>
-    <span>Discount (${GROUP_DISCOUNT*100}%)</span>
+     discount > 0
+       ? `<div class='result-row'>
+    <span>Discount (${GROUP_DISCOUNT * 100}%)</span>
     <span>-$${discount.toFixed(2)}</span>    
     </div>`
-    : ""
+       : ""
    }
    <div class="result-row">
     <span>Booking Fee</span>
@@ -103,13 +101,14 @@ function showError(message) {
   resultDiv.textContent = message;
 }
 
-
 /* ---------- 4. Connect the button ----------
    TODO: Add a "click" event listener to the calculate button
    that runs your calculateTotal function.
 */
 
 // INSERT YOUR CODE HERE
-calcBtn.addEventListener("click", calculateTotal)
- 
-quantityInput.addEventListener("keydown", (e)=>{if(e.key === "Enter") calculateTotal()})
+calcBtn.addEventListener("click", calculateTotal);
+
+quantityInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") calculateTotal();
+});
