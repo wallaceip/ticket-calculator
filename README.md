@@ -1,34 +1,63 @@
 # Ticket Calculator
 
-An interactive, front-end web application that dynamically calculates ticket costs based on user inputs such as quantity, ticket tier, and discounts. 
+An interactive, client-side web application designed to dynamically calculate event ticket pricing based on ticket tier, quantity, and discount options.
 
-This project was built as part of **Lab 5: Using JavaScript and Deploying a Website** in the **Web Development 1** course within the Software Development Diploma program at the Southern Alberta Institute of Technology (SAIT).
+Developed for **Web Development 1 (Lab 5: Using JavaScript and Deploying a Website)** in the Software Development Diploma program at the Southern Alberta Institute of Technology (SAIT).
 
 ## Overview
 
-The primary goal of this application is to demonstrate core JavaScript fundamentals in the browser, focusing on DOM manipulation, event handling, input validation, and real-time calculations without external frameworks or dependencies.
+This project demonstrates core JavaScript fundamentals in the browser, focusing on event-driven programming, input validation, dynamic calculation logic, and DOM manipulation without external dependencies.
 
-## Key Features
+## Features
 
-- **Dynamic Total Calculation:** Instantly updates ticket subtotal, taxes/fees, discounts, and total cost based on user selections.
-- **Input Validation:** Ensures quantity values are positive integers and handles edge cases gracefully.
-- **Responsive Layout:** Clean, mobile-friendly interface built with modern CSS flexbox/grid.
-- **Vanilla Implementation:** Zero third-party dependencies or heavy build steps required.
+- **Real-Time Total Calculation:** Automatically calculates subtotals, discounts, taxes, and final totals based on user selections.
+- **Input Validation:** Enforces positive integer inputs and handles boundary cases gracefully.
+- **Responsive Layout:** Clean, accessible interface structured for mobile and desktop screens using modern CSS.
+- **Vanilla Implementation:** Built using native web standards with zero dependencies or build steps.
 
 ## Tech Stack
 
-- **HTML5:** Semantic markup and accessible form controls.
-- **CSS3:** Custom styles, responsive layout design, and component hierarchy.
-- **JavaScript (ES6+):** Event listeners, form handling, and calculation logic.
+- **HTML5:** Semantic document structure and form controls.
+- **CSS3:** Responsive layout, flexbox, and styling.
+- **JavaScript (ES6+):** Event listeners, form state handling, and calculation algorithms.
 
 ## Getting Started
 
 ### Prerequisites
 
-All you need is a modern web browser (Google Chrome, Firefox, Safari, or Microsoft Edge).
+A modern web browser (Chrome, Firefox, Safari, or Edge).
 
 ### Running Locally
 
 1. Clone the repository:
    ```bash
    git clone [https://github.com/wallaceip/ticket-calculator.git](https://github.com/wallaceip/ticket-calculator.git)
+
+```
+
+2. Navigate to the project directory:
+```bash
+cd ticket-calculator
+
+```
+
+
+3. Open `index.html` directly in your browser, or launch it with a local development server such as VS Code's **Live Server**.
+
+## Project Structure
+
+```text
+ticket-calculator/
+├── index.html        # Main HTML document and form inputs
+├── styles.css        # Responsive styling and layout rules
+├── script.js         # Core calculation and DOM manipulation logic
+└── README.md         # Project documentation
+
+```
+
+## Deployment
+
+The static files can be served directly through any static host:
+
+* **GitHub Pages:** Serve directly from the `main` branch root.
+* **Vercel / Netlify:** Import the Git repository for automatic static deployment.
